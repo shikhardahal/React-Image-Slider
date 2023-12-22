@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Yo SCSS ho hai */
+.imageGallery {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  
+	.image {
+	  width: 100%;
+	  height: 150px;
+	  cursor: pointer;
+  
+	  img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	  }
+  
+	  &:hover {
+		outline: 1px solid rgb(244, 244, 108);
+	  }
+	}
+  
+	.extra-images {
+	  position: relative;
+  
+	  img {
+		filter: blur(1px);
+	  }
+  
+	  .image-count {
+		font-size: 2rem;
+		font-weight: bold;
+		color: white;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	  }
+	}
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .image-popper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	width: 100vw;
+	height: 100vh;
+  
+	.background {
+	  z-index: 1;
+	  position: absolute;
+	  top: 0rem;
+	  left: 0rem;
+	  width: 100vw;
+	  height: 100vh;
+	  background: #000000c8;
+	}
+  
+	img {
+	  height: 95vh;
+	  width: auto;
+	  z-index: 100;
+	  object-fit: contain;
+	  border: 5px solid white;
+	}
+  
+	.close-btn {
+	  z-index: 100;
+	  padding: 0.25rem 0.5rem;
+	  position: absolute;
+	  right: 2rem;
+	  top: 2rem;
+	  color: rgb(0, 0, 0);
+	  border: none;
+	  background: #fe3535cf;
+	  cursor: pointer;
+	}
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
